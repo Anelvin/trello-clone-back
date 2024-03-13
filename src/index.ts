@@ -1,19 +1,8 @@
-import express, { Application, Request, Response } from 'express'
+import { AppDataSource } from "./data-source"
+import { User } from "./entity/User"
 
-const app: Application = express()
+AppDataSource.initialize().then(async () => {
 
-const port = 3001
+    console.log("Here you can setup and run express / fastify / any other framework.")
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.get('/', async(req: Request, res: Response): Promise<Response> => {
-    return res.status(200).send({ message: `Welcome to this API` })
-})
-
-try {
-    app.listen(port, () => {
-        console.log(`Server running on port ${port}`)
-    })
-} catch (error: any) {
-    console.log(`Error occurred: ${error.message}`)
-}
+}).catch(error => console.log(error))
