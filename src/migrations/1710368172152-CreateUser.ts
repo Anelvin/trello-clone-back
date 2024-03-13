@@ -29,6 +29,16 @@ export class CreateUser1710368172152 implements MigrationInterface {
                         isNullable: false
                     },
                     {
+                        name: 'password',
+                        type: 'varchar',
+                        isNullable: false
+                    },
+                    {
+                        name: 'image',
+                        type: 'varchar',
+                        isNullable: true
+                    },
+                    {
                         name: 'created_at',
                         type: 'timestamp',
                         default: "now()"
@@ -49,7 +59,7 @@ export class CreateUser1710368172152 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE \`user\``);
+        await queryRunner.query(`DROP TABLE \`users\``);
     }
 
 }
