@@ -11,6 +11,8 @@ AppDataSource.initialize().then(async () => {
 
 }).catch(error => console.log(error))
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
     res.send('Hello world!');
   });

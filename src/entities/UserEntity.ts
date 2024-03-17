@@ -1,6 +1,6 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
-@Entity()
+@Entity('users')
 export class User {
     @PrimaryGeneratedColumn()
     id: number
@@ -15,7 +15,7 @@ export class User {
     email: string
 
     @Column()
-    passwod: string
+    password: string
 
     @Column()
     image: string
@@ -24,7 +24,7 @@ export class User {
     created_at: Date
 
     @UpdateDateColumn()
-    update_at: Date
+    updated_at: Date
 
     @DeleteDateColumn()
     deleted_at: Date
